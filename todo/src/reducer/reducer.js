@@ -27,7 +27,12 @@ export const initialList = [
 export const reducer = (state, action) => {
   switch (action.type) {
     case ON_ADD_TODO: {
-      return [];
+        const newTodo = {
+            item: action.payload.value,
+            completed: false,
+            id: Date.now()
+        }
+      return [...state, newTodo] 
     }
     case ON_MARK_COMPLETE: {
       return [];
