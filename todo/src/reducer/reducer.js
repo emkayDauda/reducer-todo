@@ -5,17 +5,17 @@ export const initialList = [
   {
     item: "Learn about reducers",
     completed: false,
-    id: 3892987589
+    id: 38929875894
   },
   {
     item: "Learn about functions",
     completed: false,
-    id: 3892987589
+    id: 38929875892
   },
   {
     item: "Learn about state",
     completed: false,
-    id: 3892987589
+    id: 38929875898
   },
   {
     item: "Learn about context",
@@ -35,8 +35,11 @@ export const reducer = (state, action) => {
       return [...state, newTodo] 
     }
     case ON_MARK_COMPLETE: {
+        const obj = state.find(todo => todo.id === action.payload.id)
+        obj.completed = true;
       return [
-          ...state.filter(todo => todo.id !== action.payload.id)
+          ...state.filter(todo => todo.id !== action.payload.id),
+          obj
       ];
     }
     default:
