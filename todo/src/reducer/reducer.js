@@ -1,4 +1,5 @@
 export const ON_ADD_TODO = "ON_ADD_TODO";
+export const ON_CLEAR_COMPLETED = "ON_CLEAR_COMPLETED";
 export const ON_MARK_COMPLETE = "ON_MARK_COMPLETE";
 
 export const initialList = [
@@ -41,6 +42,11 @@ export const reducer = (state, action) => {
           ...state.filter(todo => todo.id !== action.payload.id),
           obj
       ];
+    }
+    case ON_CLEAR_COMPLETED: {
+        return [
+            ...state.filter(todo => !todo.completed)
+        ]
     }
     default:
       return state;
