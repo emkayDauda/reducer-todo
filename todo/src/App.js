@@ -11,10 +11,13 @@ function App() {
   const [data, dispatch] = useReducer(reducer, initialList);
   console.log(data);
 
-  const onSubmit = (formValues, actions) => dispatch({
-    type: ON_ADD_TODO,
-    payload: {value: formValues.item}
-  })
+  const onSubmit = (formValues, actions) => {
+    dispatch({
+      type: ON_ADD_TODO,
+      payload: {value: formValues.item}
+    })
+    actions.resetForm();
+  }
   return (
     <div className="App">
       <TodoList todos = {data} />
