@@ -1,7 +1,5 @@
-import { useReducer } from "react";
-
-const ON_ADD_TODO = "ON_ADD_TODO";
-const ON_MARK_COMPLETE = "ON_MARK_COMPLETE";
+export const ON_ADD_TODO = "ON_ADD_TODO";
+export const ON_MARK_COMPLETE = "ON_MARK_COMPLETE";
 
 export const initialList = [
   {
