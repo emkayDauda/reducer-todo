@@ -18,9 +18,14 @@ function App() {
     })
     actions.resetForm();
   }
+
+  const markComplete = id => dispatch({
+    type: ON_MARK_COMPLETE,
+    payload: {id: id}
+  })
   return (
     <div className="App">
-      <TodoList todos = {data} />
+      <TodoList todos = {data} markComplete= {markComplete} />
       <TodoForm onSubmit={onSubmit} />
     </div>
   );

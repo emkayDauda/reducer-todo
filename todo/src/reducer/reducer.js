@@ -35,7 +35,9 @@ export const reducer = (state, action) => {
       return [...state, newTodo] 
     }
     case ON_MARK_COMPLETE: {
-      return [];
+      return [
+          ...state.filter(todo => todo.id !== action.payload.id)
+      ];
     }
     default:
       return state;
